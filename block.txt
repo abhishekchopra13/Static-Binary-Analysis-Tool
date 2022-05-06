@@ -1,0 +1,237 @@
+<.plt.got>
+endbr64 
+repne jmpq *12157(%rip) 
+nopl (%rax,%rax) 
+
+section .plt.sec: 
+
+
+____________
+
+____________
+<.plt.sec>
+endbr64 
+repne jmpq *12077(%rip) 
+nopl (%rax,%rax) 
+endbr64 
+repne jmpq *12069(%rip) 
+nopl (%rax,%rax) 
+endbr64 
+repne jmpq *12061(%rip) 
+nopl (%rax,%rax) 
+endbr64 
+repne jmpq *12053(%rip) 
+nopl (%rax,%rax) 
+
+section .text: 
+
+
+____________
+
+____________
+<.plt>
+pushq 12162(%rip) 
+repne jmpq *12163(%rip) 
+nopl (%rax) 
+endbr64 
+
+repne jmp 0x1020 <.plt> 
+nop 
+endbr64 
+
+repne jmp 0x1020 <.plt> 
+nop 
+endbr64 
+
+repne jmp 0x1020 <.plt> 
+nop 
+endbr64 
+
+repne jmp 0x1020 <.plt> 
+nop 
+
+section .plt.got: 
+
+
+____________
+
+____________
+<_Z3funi>
+endbr64 
+pushq %rbp 
+movq %rsp, %rbp 
+subq $16, %rsp 
+movl %edi, -4(%rbp) 
+movl -4(%rbp), %eax 
+movl %eax, %esi 
+leaq 3648(%rip), %rax 
+movq %rax, %rdi 
+movl $0, %eax 
+callq 0x10a0 <.plt.sec+0x20> 
+nop 
+leave 
+retq 
+
+
+____________
+
+____________
+<__do_global_dtors_aux>
+endbr64 
+cmpb $0, 11941(%rip) 
+jne 0x1198 <__do_global_dtors_aux+0x38> 
+pushq %rbp 
+cmpq $0, 11906(%rip) 
+movq %rsp, %rbp 
+je 0x1187 <__do_global_dtors_aux+0x27> 
+movq 11910(%rip), %rdi 
+callq 0x1070 <.plt.got> 
+callq 0x10f0 <deregister_tm_clones> 
+movb $1, 11901(%rip) 
+popq %rbp 
+retq 
+nopl (%rax) 
+retq 
+nopl (%rax) 
+
+
+____________
+
+____________
+<_fini>
+endbr64 
+subq $8, %rsp 
+addq $8, %rsp 
+retq 
+
+____________
+
+____________
+<_init>
+endbr64 
+subq $8, %rsp 
+movq 12249(%rip), %rax 
+testq %rax, %rax 
+je 0x1016 <_init+0x16> 
+callq *%rax 
+addq $8, %rsp 
+retq 
+
+section .plt: 
+
+
+____________
+
+____________
+<_start>
+endbr64 
+xorl %ebp, %ebp 
+movq %rdx, %r9 
+popq %rsi 
+movq %rsp, %rdx 
+andq $-16, %rsp 
+pushq %rax 
+pushq %rsp 
+xorl %r8d, %r8d 
+xorl %ecx, %ecx 
+leaq 245(%rip), %rdi 
+callq *12019(%rip) 
+hlt 
+nopw %cs:(%rax,%rax) 
+
+
+____________
+
+____________
+<deregister_tm_clones>
+leaq 12057(%rip), %rdi 
+leaq 12050(%rip), %rax 
+cmpq %rdi, %rax 
+je 0x1118 <deregister_tm_clones+0x28> 
+movq 11990(%rip), %rax 
+testq %rax, %rax 
+je 0x1118 <deregister_tm_clones+0x28> 
+jmpq *%rax 
+nopl (%rax) 
+retq 
+nopl (%rax) 
+
+
+____________
+
+____________
+<frame_dummy>
+endbr64 
+jmp 0x1120 <register_tm_clones> 
+
+
+____________
+
+____________
+<main>
+endbr64 
+pushq %rbp 
+movq %rsp, %rbp 
+subq $64, %rsp 
+movq %fs:40, %rax 
+movq %rax, -8(%rbp) 
+xorl %eax, %eax 
+leaq -56(%rbp), %rax 
+movq %rax, %rsi 
+leaq 3591(%rip), %rax 
+movq %rax, %rdi 
+movl $0, %eax 
+callq 0x10b0 <.plt.sec+0x30> 
+movl -56(%rbp), %eax 
+movl %eax, %edi 
+callq 0x11a9 <_Z3funi> 
+movl -56(%rbp), %eax 
+cmpl $1, %eax 
+jle 0x1225 <main+0x51> 
+movl $100, -56(%rbp) 
+jmp 0x122c <main+0x58> 
+movl $1, -56(%rbp) 
+movl -56(%rbp), %eax 
+testl %eax, %eax 
+je 0x123d <main+0x69> 
+movl $1, %edi 
+callq 0x11a9 <_Z3funi> 
+movb $97, -48(%rbp) 
+leaq -48(%rbp), %rax 
+movl $0, %ecx 
+movl $2, %edx 
+movq %rax, %rsi 
+movl $1, %edi 
+callq 0x1090 <.plt.sec+0x10> 
+movl %eax, -52(%rbp) 
+movl $0, %eax 
+movq -8(%rbp), %rdx 
+subq %fs:40, %rdx 
+je 0x1278 <main+0xa4> 
+callq 0x1080 <.plt.sec> 
+leave 
+retq 
+
+section .fini: 
+
+
+____________
+
+____________
+<register_tm_clones>
+leaq 12009(%rip), %rdi 
+leaq 12002(%rip), %rsi 
+subq %rdi, %rsi 
+movq %rsi, %rax 
+shrq $63, %rsi 
+sarq $3, %rax 
+addq %rax, %rsi 
+sarq %rsi 
+je 0x1158 <register_tm_clones+0x38> 
+movq 11941(%rip), %rax 
+testq %rax, %rax 
+je 0x1158 <register_tm_clones+0x38> 
+jmpq *%rax 
+nopw (%rax,%rax) 
+retq 
+nopl (%rax) 
